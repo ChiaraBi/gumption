@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { Facet } from '../../../models/facet';
 
@@ -10,10 +10,14 @@ import { Facet } from '../../../models/facet';
 export class FacetComponent implements OnInit {
   
   @Input() facet: Facet;
+  @Output() onCheckBoxChanged = new EventEmitter<Facet>();
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  onCheckboxChange() {
+    this.onCheckBoxChanged.emit();
   }
 
 }

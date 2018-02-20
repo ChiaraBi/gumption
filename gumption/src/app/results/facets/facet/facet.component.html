@@ -3,8 +3,10 @@
   <ul class="list-group">
     <li class="list-group-item" *ngFor="let item of facet.items">
         <label class="form-check-label">
-            <div><input class="form-check-input" type="checkbox" value="" disabled>
-            {{item.category}}</div>
+            <div>
+              <input class="form-check-input" type="checkbox" [(ngModel)]="facet.isSelected" (change)="onCheckboxChange()">
+              {{item.category}}
+            </div>
             <span class="badge">{{item.docCount}}</span>
         </label>
     </li>

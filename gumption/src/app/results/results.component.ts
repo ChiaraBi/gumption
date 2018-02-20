@@ -13,6 +13,7 @@ import { Facet } from '../models/facet';
 export class ResultsComponent implements OnInit {
   records: Result[];
   facets: Facet[];
+  selectedFacets: Facet[];
 
   constructor(
     private route: ActivatedRoute) { }
@@ -42,7 +43,8 @@ export class ResultsComponent implements OnInit {
               category: item['key'],
               docCount: item['doc_count']
             }
-          }).slice(1,10)
+          }).slice(1,10),
+          isSelected: false
         };
         console.log(facet);
         facets.push(facet);
